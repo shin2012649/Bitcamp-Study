@@ -35,15 +35,15 @@ public class Exam0410 {
 
 // JVM이 메모리를 다루는 방법
 // - 크게 다음 세가지 영역으로 나눠 관리한다.
-//
+
 // 1) Method Area
 // - 클래스 명령 코드를 둔다.
 // - static 변수를 둔다.
-//
+
 // 2) Heap
 // - new 명령으로 만든 메모리(인스턴스=객체)를 둔다.
 // - Garbage Collector(GC)가 관리하는 영역이다.
-//
+
 // 3) JVM Stack
 // - 스레드 별로 JVM Stack 메모리를 따로 관리한다.
 // - 메서드의 로컬 변수는 둔다.
@@ -54,5 +54,5 @@ public class Exam0410 {
 //   "스택(stack)" 메모리라 부른다.
 //   스택? 접시 쌓는 것을 생각하라!
 // - 스택 방식을 "Last In First Out(LIFO;후입선출, FILO;선입후출)"라 부른다. 
-//
+
 // JVM이 종료하면 JVM이 사용했던 모든 메모리를 OS가 회수한다.

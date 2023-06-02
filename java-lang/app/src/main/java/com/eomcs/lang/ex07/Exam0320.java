@@ -21,6 +21,10 @@ public class Exam0320 {
   }
 }
 
+// 스택은 로컬변수 - JVM Stack 
+// 뉴 명령어 만든 변수 - HEAP
+// Method Area class Exam {} ~ 
+
 
 
 
