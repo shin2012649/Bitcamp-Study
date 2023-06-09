@@ -3,7 +3,7 @@ package bitcamp.myapp.handler;
 import bitcamp.util.Prompt;
 
 public class MemberHandler {
-
+ 
   static final int MAX_SIZE = 100;
   static int[] no = new int[MAX_SIZE];
   static String[] name = new String[MAX_SIZE];
