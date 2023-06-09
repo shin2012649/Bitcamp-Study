@@ -32,7 +32,7 @@ public class MemberHandler {
   }
 
   public static void printMembers() {
-    System.out.println("---------------------------------------");
+    System.out.println("--------------------------------------");
     System.out.println("번호, 이름, 이메일, 성별");
     System.out.println("---------------------------------------");
 
