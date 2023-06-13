@@ -5,7 +5,7 @@ import bitcamp.myapp.handler.MemberHandler;
 import bitcamp.util.Prompt;
 
 public class App {
-
+  
   public static void main(String[] args) {
 
     printTitle();
@@ -38,7 +38,7 @@ public class App {
         BoardHandler.updateBoard();
       } else if (menuNo.equals("10")) {
         BoardHandler.deleteBoard();
-      }else {
+      } else {
         System.out.println(menuNo);
       }
     }
@@ -52,16 +52,24 @@ public class App {
     System.out.println("3. 회원조회");
     System.out.println("4. 회원변경");
     System.out.println("5. 회원삭제");
-    System.out.println("6. 게시글등록");
-    System.out.println("7. 게시글목록");
-    System.out.println("8. 게시글조회");
-    System.out.println("9. 게시글변경");
-    System.out.println("10. 게시글삭제");
+    System.out.println("6. 게시글 등록");
+    System.out.println("7. 게시글 목록");
+    System.out.println("8. 게시글 조회");
+    System.out.println("9. 게시글 변경");
+    System.out.println("10. 게시글 삭제");
     System.out.println("99. 종료");
   }
 
   static void printTitle() {
     System.out.println("나의 목록 관리 시스템");
     System.out.println("----------------------------------");
+  }
+
+  static boolean promptContinue() {
+    String response = Prompt.inputString("계속 하시겠습니까?(Y/n) ");
+    if (!response.equals("") && !response.equalsIgnoreCase("Y")) {
+      return false;
+    }
+    return true;
   }
 }
