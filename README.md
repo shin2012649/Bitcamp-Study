@@ -1,8 +1,8 @@
 # 네이버 클라우드 7기(2023-04-24 ~ 2023-10-27)
 
-## 구글 미트 접속
+## 웨일즈 화상회의
 
-https://meet.google.com/sya-jckw-ivq
+https://whaleon.us/o/CSrtk1/001aa759f29c46b985e32dd8562f594a
 
 ## 학습 내용
 
@@ -178,7 +178,31 @@ https://meet.google.com/sya-jckw-ivq
     - 생성자 사용법
     - private/public, setter/getter 사용법
 
+### 14일(6/12,월)
 
-## 구글 미트 접속
+- 자바 프로그래밍
+  - 클래스 사용법(복습)
+  - Eclipse IDE 도구 설정
+    - 다운로드 및 설치, 워크스페이스 설정
+    - 프로젝트 임포트
+    - 소스 코드 편집과 컴파일, 실행하기
+    - git add/commit/push 실행하기
+- Gradle 사용법
+  - 빌드 스크립트 파일과 플러그인, 태스크 관계
+  - `eclispe` 플러그인 사용법
+- 프로젝트 실습
+  - 12. 생성자, 셋터, 겟터 도입하기
 
-https://meet.google.com/sya-jckw-ivq
+### 15일(6/13,화)
+
+- 자바 프로그래밍(com.eomcs.oop.ex03.*)
+  - 클래스 로딩과 스태틱 필드: Method Area 메모리 영역
+  - new 연산자와 인스턴스 필드: Heap 메모리 영역
+  - 메서드와 로컬 변수: JVM Stack 메모리 영역
+- 프로젝트 실습
+  - 13. 게시판 관리 기능 추가
+
+
+## 웨일즈 화상회의
+
+https://whaleon.us/o/CSrtk1/001aa759f29c46b985e32dd8562f594a
