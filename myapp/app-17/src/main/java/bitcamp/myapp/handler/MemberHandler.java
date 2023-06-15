@@ -7,8 +7,11 @@ import bitcamp.util.Prompt;
 // 즉 Handler 인터페이스에 선언된 메서드를 모두 정의했다.
 public class MemberHandler implements Handler {
 
-  private MemberList list = new MemberList();
+  private static final int MAX_SIZE = 100;
+
   private Prompt prompt;
+  private Member[] members = new Member[MAX_SIZE];
+  private int length;
   private String title;
 
   public MemberHandler(Prompt prompt, String title) {
@@ -53,15 +56,18 @@ public class MemberHandler implements Handler {
   }
 
   private void inputMember() {
+    if (!this.available()) {
+      System.out.println("더이상 입력할 수 없습니다!");
+      return;
+    }
+
     Member m = new Member();
     m.setName(this.prompt.inputString("이름? "));
     m.setEmail(this.prompt.inputString("이메일? "));
     m.setPassword(this.prompt.inputString("암호? "));
     m.setGender(inputGender((char)0));
 
-    if (!this.list.add(m)) {
-      System.out.println("입력 실패입니다!");
-    }
+    this.members[this.length++] = m;
   }
 
   private void printMembers() {
@@ -69,8 +75,8 @@ public class MemberHandler implements Handler {
     System.out.println("번호, 이름, 이메일, 성별");
     System.out.println("---------------------------------------");
 
-    Member[] arr = this.list.list();
-    for (Member m : arr) {
+    for (int i = 0; i < this.length; i++) {
+      Member m = this.members[i];
       System.out.printf("%d, %s, %s, %s\n",
           m.getNo(), m.getName(), m.getEmail(),
           toGenderString(m.getGender()));
@@ -78,17 +84,17 @@ public class MemberHandler implements Handler {
   }
 
   private void viewMember() {
-    int memberNo = this.prompt.inputInt("번호? ");
-
-    Member m = this.list.get(memberNo);
-    if (m == null) {
-      System.out.println("해당 번호의 회원이 없습니다!");
-      return;
+    String memberNo = this.prompt.inputString("번호? ");
+    for (int i = 0; i < this.length; i++) {
+      Member m = this.members[i];
+      if (m.getNo() == Integer.parseInt(memberNo)) {
+        System.out.printf("이름: %s\n", m.getName());
+        System.out.printf("이메일: %s\n", m.getEmail());
+        System.out.printf("성별: %s\n", toGenderString(m.getGender()));
+        return;
+      }
     }
-
-    System.out.printf("이름: %s\n", m.getName());
-    System.out.printf("이메일: %s\n", m.getEmail());
-    System.out.printf("성별: %s\n", toGenderString(m.getGender()));
+    System.out.println("해당 번호의 회원이 없습니다!");
   }
 
   private static String toGenderString(char gender) {
@@ -96,18 +102,18 @@ public class MemberHandler implements Handler {
   }
 
   private void updateMember() {
-    int memberNo = this.prompt.inputInt("번호? ");
-
-    Member m = this.list.get(memberNo);
-    if (m == null) {
-      System.out.println("해당 번호의 회원이 없습니다!");
-      return;
+    String memberNo = this.prompt.inputString("번호? ");
+    for (int i = 0; i < this.length; i++) {
+      Member m = this.members[i];
+      if (m.getNo() == Integer.parseInt(memberNo)) {
+        m.setName(this.prompt.inputString("이름(%s)? ", m.getName()));
+        m.setEmail(this.prompt.inputString("이메일(%s)? ", m.getEmail()));
+        m.setPassword(this.prompt.inputString("새암호? "));
+        m.setGender(inputGender(m.getGender()));
+        return;
+      }
     }
-
-    m.setName(this.prompt.inputString("이름(%s)? ", m.getName()));
-    m.setEmail(this.prompt.inputString("이메일(%s)? ", m.getEmail()));
-    m.setPassword(this.prompt.inputString("새암호? "));
-    m.setGender(inputGender(m.getGender()));
+    System.out.println("해당 번호의 회원이 없습니다!");
   }
 
   private char inputGender(char gender) {
@@ -136,8 +142,32 @@ public class MemberHandler implements Handler {
   }
 
   private void deleteMember() {
-    if (!this.list.delete(this.prompt.inputInt("번호? "))) {
+    int memberNo = this.prompt.inputInt("번호? ");
+
+    int deletedIndex = indexOf(memberNo);
+    if (deletedIndex == -1) {
       System.out.println("해당 번호의 회원이 없습니다!");
+      return;
     }
+
+    for (int i = deletedIndex; i < this.length - 1; i++) {
+      this.members[i] = this.members[i + 1];
+    }
+
+    this.members[--this.length] = null;
+  }
+
+  private int indexOf(int memberNo) {
+    for (int i = 0; i < this.length; i++) {
+      Member m = this.members[i];
+      if (m.getNo() == memberNo) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  private boolean available() {
+    return this.length < MAX_SIZE;
   }
 }
