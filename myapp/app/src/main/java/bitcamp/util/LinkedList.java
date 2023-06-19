@@ -160,7 +160,8 @@ public class LinkedList implements List {
 
     return old;
   }
-  
+
+  @Override
   public int size() {
     return this.size;
   }
