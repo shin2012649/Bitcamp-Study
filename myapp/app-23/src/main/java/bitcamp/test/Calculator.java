@@ -1,4 +1,4 @@
-package bitcamp.test.p1;
+package bitcamp.test;
 
 public class Calculator {
 

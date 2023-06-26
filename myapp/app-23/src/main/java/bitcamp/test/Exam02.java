@@ -1,5 +1,5 @@
 // 상속 - 상속 문법을 이용한 기능 추가
-package bitcamp.test.p1;
+package bitcamp.test;
 
 public class Exam02 {
   public static void main(String[] args) {
