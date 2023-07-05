@@ -15,7 +15,7 @@ interface MyInterface2 {
   public final int v3 = 300;
   public static int v4 = 400;
 
-  int v5 = 500; // 모두 생략된 상태!
+  int v5 = 500; // 모두 생략된 상태!  // public 이면서 , final 이다 생략된 것 
 }
 
 // 인터페이스 필드 사용

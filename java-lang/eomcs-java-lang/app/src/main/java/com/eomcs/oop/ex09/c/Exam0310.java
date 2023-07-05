@@ -5,6 +5,7 @@ package com.eomcs.oop.ex09.c;
 public class Exam0310 {
 
   interface ProtocolA {
+    void rule0(); // 추상 메서드인 경우 구현하지 않았기 때문에 다중 구현시 중복되더라도 문제가 되지 않는다. 
     void rule1();
     default void rule3() {
       System.out.println("**ProtocolA.rule3()**");
@@ -12,8 +13,9 @@ public class Exam0310 {
   }
 
   interface ProtocolB {
-    void rule2();
-    default void rule3() {
+    void rule0(); // 추상 메서드인 경우 구현하지 않았기 때문에 다중 구현 시 중복되더라도 문제가 되지 않는다. 
+    void rule2(); 
+    default void rule3() {  
       System.out.println("====> ProtocolB.rule3()");
     }
   }
