@@ -61,5 +61,40 @@
     "email": "hahax@test.com",
     "password": "1111",
     "gender": "M"
+  },
+  {
+    "no": 15,
+    "name": "test1",
+    "email": "test1@test.com",
+    "password": "1111",
+    "gender": "W"
+  },
+  {
+    "no": 16,
+    "name": "방현석",
+    "email": "test@test.com",
+    "password": "testtest",
+    "gender": "M"
+  },
+  {
+    "no": 20,
+    "name": "111",
+    "email": "111",
+    "password": "111",
+    "gender": "M"
+  },
+  {
+    "no": 21,
+    "name": "자바고수 이진석",
+    "email": "lee@test.com",
+    "password": "1111",
+    "gender": "M"
+  },
+  {
+    "no": 25,
+    "name": "qqq",
+    "email": "",
+    "password": "",
+    "gender": "M"
   }
 ]

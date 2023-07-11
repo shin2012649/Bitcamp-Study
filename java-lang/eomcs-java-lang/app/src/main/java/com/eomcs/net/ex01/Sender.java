@@ -8,6 +8,8 @@ import java.util.Scanner;
 public class Sender {
 
   public static void main(String[] args) throws Exception {
+    Scanner keyscan = new Scanner(System.in);
+    
     System.out.println("클라이언트 실행!");
 
     // 1) 다른 컴퓨터와 네트워크로 연결한다.
@@ -27,7 +29,12 @@ public class Sender {
     System.out.println("서버와 데이터를 송수신할 스트림 준비!");
 
     // 3) 상대편으로 문자열을 한 줄 보낸다.
+    // 보낸 데이터를 NIC의 메모리에 임시 보관된다. 
+    // 임시 보관된 데이터가 상대편으로 완전히 보내졌는지 따지지 않고 즉시 리턴한다. 
     out.println("엄진영입니다. 안녕하세요!");
+    System.out.println("서버에 데이터 보냈습니다.");
+    
+    keyscan.nextLine(); // 서버가 보낸 문자열을 읽지 않고 대기함. 
 
     // 4) 상대편에서 보낸 문자열을 한 줄 읽는다.
     // => 상대편이 한 줄 데이터를 보낼 때까지 리턴하지 않는다.

@@ -53,7 +53,7 @@ public class Server0110 {
         // => 클라이언트가 1바이트를 보낼 때까지 리턴하지 않는다.
         int request = in.read(); // blocking 모드로 작동한다.
 
-        System.out.println(request);
+        System.out.println(request + 1);
 
         // 서버가 데이터를 보내지 않으면 클라이언트의 read()는 리턴하지 않는다.
         // 이를 확인하기 위해 잠시 실행을 멈춘다.
