@@ -84,17 +84,38 @@
     "gender": "M"
   },
   {
-    "no": 21,
-    "name": "자바고수 이진석",
-    "email": "lee@test.com",
-    "password": "1111",
-    "gender": "M"
-  },
-  {
     "no": 25,
     "name": "qqq",
     "email": "",
     "password": "",
+    "gender": "M"
+  },
+  {
+    "no": 27,
+    "name": "11",
+    "email": "11",
+    "password": "11",
+    "gender": "M"
+  },
+  {
+    "no": 34,
+    "name": "네카라쿠베는내꺼!",
+    "email": "-이진석-",
+    "password": "11111",
+    "gender": "M"
+  },
+  {
+    "no": 35,
+    "name": "자바고수 이진석",
+    "email": "1111",
+    "password": "1111",
+    "gender": "M"
+  },
+  {
+    "no": 36,
+    "name": "개발왕진석",
+    "email": "몽키D진석",
+    "password": "11",
     "gender": "M"
   }
 ]
