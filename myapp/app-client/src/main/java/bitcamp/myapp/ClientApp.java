@@ -2,6 +2,7 @@ package bitcamp.myapp;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import bitcamp.dao.MySQLBoardDao;
 import bitcamp.dao.MySQLMemberDao;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.MemberDao;
@@ -24,6 +25,9 @@ import bitcamp.util.MenuGroup;
 
 public class ClientApp {
 
+  final int BOARD_CATEGORY = 1;
+  final int READING_CATEGORY = 2;
+
   MemberDao memberDao;
   BoardDao boardDao;
   BoardDao readingDao;
@@ -34,13 +38,13 @@ public class ClientApp {
 
   public ClientApp(String ip, int port) throws Exception {
 
-    Connection con = DriverManager.getConnection(
-        "jdbc:mysql://study:1111@localhost:3306/studydb" // JDBC URL
-        );
+    Connection con = DriverManager.getConnection("jdbc:mysql://study:1111@localhost:3306/studydb"
+    // JDBC URL
+    );
 
     this.memberDao = new MySQLMemberDao(con);
-    this.boardDao = null;
-    this.readingDao = null;
+    this.boardDao = new MySQLBoardDao(con, BOARD_CATEGORY);
+    this.readingDao = new MySQLBoardDao(con, READING_CATEGORY);
 
     prepareMenu();
   }
@@ -51,7 +55,7 @@ public class ClientApp {
 
   public static void main(String[] args) throws Exception {
     if (args.length < 2) {
-      System.out.println("실행 예) java ... bitcamp.myapp.ClientApp 서버주소 포트번호");
+      System.out.println("실행 예) java ...  bitcamp.myapp.ClientApp 서버주소 포트번호");
       return;
     }
 
@@ -68,7 +72,9 @@ public class ClientApp {
   public void execute() {
     printTitle();
     mainMenu.execute(prompt);
+
   }
+
 
   private void prepareMenu() {
     MenuGroup memberMenu = new MenuGroup("회원");
@@ -101,4 +107,5 @@ public class ClientApp {
     helloMenu.addActionListener(new FooterListener());
     mainMenu.add(helloMenu);
   }
+
 }
