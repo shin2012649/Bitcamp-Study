@@ -61,7 +61,7 @@ public class ServerApp {
     // 3) 빌더 객체를 통해 SqlSessionFactory를 생성
     sqlSessionFactory = new SqlSessionFactoryProxy(builder.build(mybatisConfigIn));
 
-    this.memberDao = new MySQLMemberDao(ds);
+    this.memberDao = new MySQLMemberDao(sqlSessionFactory);
     this.boardDao = new MySQLBoardDao(sqlSessionFactory, ds, 1);
     this.readingDao = new MySQLBoardDao(sqlSessionFactory, ds, 2);
 
@@ -122,11 +122,11 @@ public class ServerApp {
 
   private void prepareMenu() {
     MenuGroup memberMenu = new MenuGroup("회원");
-    memberMenu.add(new Menu("등록", new MemberAddListener(memberDao, ds)));
+    memberMenu.add(new Menu("등록", new MemberAddListener(memberDao, sqlSessionFactory)));
     memberMenu.add(new Menu("목록", new MemberListListener(memberDao)));
     memberMenu.add(new Menu("조회", new MemberDetailListener(memberDao)));
-    memberMenu.add(new Menu("변경", new MemberUpdateListener(memberDao, ds)));
-    memberMenu.add(new Menu("삭제", new MemberDeleteListener(memberDao, ds)));
+    memberMenu.add(new Menu("변경", new MemberUpdateListener(memberDao, sqlSessionFactory)));
+    memberMenu.add(new Menu("삭제", new MemberDeleteListener(memberDao, sqlSessionFactory)));
     mainMenu.add(memberMenu);
 
     MenuGroup boardMenu = new MenuGroup("게시글");

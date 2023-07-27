@@ -16,13 +16,14 @@ public class LoginListener implements MemberActionListener {
   @Override
   public void service(BreadcrumbPrompt prompt) throws IOException {
     while (true) {
-      Member m = new Member();
-      m.setEmail(prompt.inputString("이메일? "));
-      m.setPassword(prompt.inputString("암호? "));
+      Member member = new Member();
+      member.setEmail(prompt.inputString("이메일? "));
+      member.setPassword(prompt.inputString("암호? "));
 
-      Member loginUser = memberDao.findByEmailAndPassword(m);
+      Member loginUser = memberDao.findByEmailAndPassword(member);
       if (loginUser == null) {
         prompt.println("회원 정보가 일치하지 않습니다.");
+
       } else {
         prompt.setAttribute("loginUser", loginUser);
         break;
@@ -30,4 +31,6 @@ public class LoginListener implements MemberActionListener {
       prompt.end();
     }
   }
+
+
 }
