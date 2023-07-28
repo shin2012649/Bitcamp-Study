@@ -32,9 +32,9 @@ public class MySQLMemberDao implements MemberDao {
   }
 
   @Override
-  public Member findByEmailAndPassword(Member param) {
+  public Member findByEmailAndPassword(Member member) {
     SqlSession sqlSession = sqlSessionFactory.openSession();
-    return sqlSession.selectOne("bitcamp.myapp.dao.MemberDao.findByEmailAndPassword", param);
+    return sqlSession.selectOne("bitcamp.myapp.dao.MemberDao.findByEmailAndPassword", member);
   }
 
   @Override
@@ -46,8 +46,7 @@ public class MySQLMemberDao implements MemberDao {
   @Override
   public int delete(int no) {
     SqlSession sqlSession = sqlSessionFactory.openSession(false);
-    return sqlSession.update("bitcamp.myapp.dao.MemberDao.delete", no);
+    return sqlSession.delete("bitcamp.myapp.dao.MemberDao.delete", no);
   }
-
 
 }

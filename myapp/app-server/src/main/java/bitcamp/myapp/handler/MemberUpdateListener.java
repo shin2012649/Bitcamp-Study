@@ -11,7 +11,7 @@ public class MemberUpdateListener implements MemberActionListener {
   MemberDao memberDao;
   SqlSessionFactory sqlSessionFactory;
 
-  public MemberUpdateListener(MemberDao memberDao,SqlSessionFactory sqlSessionFactory) {
+  public MemberUpdateListener(MemberDao memberDao, SqlSessionFactory sqlSessionFactory) {
     this.memberDao = memberDao;
     this.sqlSessionFactory = sqlSessionFactory;
   }
