@@ -54,7 +54,7 @@ public class BoardDetailServlet extends HttpServlet {
       out.println("<tr><th>첨부파일</th><td>");
 
       for (AttachedFile file : board.getAttachedFiles()) {
-        out.printf("<a href='/upload/board/%s'>%1$s</a>"
+        out.printf("<a href='https://kr.object.ncloudstorage.com/bitcamp-bucket-05/board/63470fd0-57aa-486f-971c-121870d55c27'>%1$s</a>"
             + " [<a href='/board/file/delete?category=%d&no=%d'>삭제</a>]"
             + "<br>\n", file.getFilePath(), category, file.getNo());
       }

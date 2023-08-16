@@ -7,11 +7,13 @@ import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.webresources.DirResourceSet;
 import org.apache.catalina.webresources.StandardRoot;
+import bitcamp.util.NcpConfig;
 
 public class App {
 
   public static void main(String[] args) throws Exception {
     System.out.println("서버 시작!");
+    
 
     // 톰캣 서버를 구동시키는 객체 준비
     Tomcat tomcat = new Tomcat();
