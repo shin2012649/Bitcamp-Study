@@ -1,11 +1,11 @@
 package eomcs.servlet.ex01;
 
-import java.io.IOException;
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import java.io.IOException;
 
 //GenericServlet 추상 클래스
 //=> javax.servlet.Servlet 인터페이스를 구현하였다.
@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 //=> 따라서 이 클래스를 상속 받는 서브 클래스는 service() 만 구현하면 된다.
 //
 //@WebServlet 애노테이션
+
 //=> web.xml 에 서블릿 정보를 설정하는 대신에
 // 이 애노테이션을 사용하여 서블릿을 설정할 수 있다.
 //=> 이 애노테이션을 활성화시키려면
