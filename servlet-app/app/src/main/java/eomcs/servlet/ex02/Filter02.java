@@ -37,7 +37,7 @@ public class Filter02 implements Filter {
 
   @Override
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-          throws IOException, ServletException {
+      throws IOException, ServletException {
     // 요청이 들어 올 때 마다 호출된다.
     // => 단 필터를 설정할 때 지정된 URL의 요청에만 호출된다.
     // => 서블릿이 실행되기 전에 필터가 먼저 실행된다.

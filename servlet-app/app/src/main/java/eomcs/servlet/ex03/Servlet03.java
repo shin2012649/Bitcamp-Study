@@ -26,7 +26,7 @@ public class Servlet03 extends GenericServlet {
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head><title>servlet03</title></head>");
-    out.println("<body><h1>안녕하세요</h1></body>");
+    out.println("<body><h1>안녕하세요2</h1></body>");
     out.println("</html>");
   }
 }

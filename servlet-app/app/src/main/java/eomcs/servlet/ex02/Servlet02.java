@@ -15,7 +15,7 @@ public class Servlet02 extends GenericServlet {
 
   @Override
   public void service(ServletRequest req, ServletResponse res)
-          throws ServletException, IOException {
+      throws ServletException, IOException {
     System.out.println("/ex02/a/s2 서블릿 실행!");
   }
 }
