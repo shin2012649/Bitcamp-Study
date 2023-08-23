@@ -40,8 +40,8 @@ public class MemberDetailServlet extends HttpServlet {
       out.printf("<tr><th style='width:120px;'>사진</th>"
           + " <td style='width:300px;'>"
           + (member.getPhoto() == null ? "<img style='height:80px' src='/images/avatar.png'>" :
-            "<a href='https://kr.object.ncloudstorage.com/bitcamp-bucket-05/member/%s'>"
-            + "<img src='http://qjeteawhqfgf19010749.cdn.ntruss.com/member/%1$s?type=f&w=60&h=80&faceopt=true&ttype=jpg'>"
+            "<a href='https://kr.object.ncloudstorage.com/bitcamp-nc7-bucket-118/member/%s'>"
+            + "<img src='http://mvsenqskbqzl19010704.cdn.ntruss.com/member/%1$s?type=f&w=60&h=80&faceopt=true&ttype=jpg'>"
             + "</a>")
           + " <input type='file' name='photo'>"
           + "</td></tr>\n", member.getPhoto());

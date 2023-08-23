@@ -30,7 +30,7 @@ public class MemberAddServlet extends HttpServlet {
     Part photoPart = request.getPart("photo");
     if (photoPart.getSize() > 0) {
       String uploadFileUrl = InitServlet.ncpObjectStorageService.uploadFile(
-          "bitcamp-bucket-05", "member/", photoPart);
+          "bitcamp-nc7-bucket-118", "member/", photoPart);
       m.setPhoto(uploadFileUrl);
     }
 

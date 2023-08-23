@@ -35,18 +35,6 @@ public class MemberUpdateServlet extends HttpServlet {
       member.setPhoto(uploadFileUrl);
     }
 
-    response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
-    out.println("<!DOCTYPE html>");
-    out.println("<html>");
-    out.println("<head>");
-    out.println("<meta charset='UTF-8'>");
-    out.println("<meta http-equiv='refresh' content='1;url=/member/list'>");
-    out.println("<title>회원</title>");
-    out.println("</head>");
-    out.println("<body>");
-    out.println("<h1>회원 변경</h1>");
-
     try {
       if (InitServlet.memberDao.update(member) == 0) {
         throw new Exception("회원이 없습니다.");

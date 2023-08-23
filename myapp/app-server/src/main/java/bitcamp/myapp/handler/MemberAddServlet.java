@@ -33,6 +33,7 @@ public class MemberAddServlet extends HttpServlet {
           "bitcamp-bucket-05", "member/", photoPart);
       m.setPhoto(uploadFileUrl);
     }
+
     try {
       InitServlet.memberDao.insert(m);
       InitServlet.sqlSessionFactory.openSession(false).commit();
