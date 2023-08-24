@@ -13,7 +13,7 @@
 <%
     Member loginUser = (Member) request.getSession().getAttribute("loginUser");
     if (loginUser == null) {
-      out.println("<a href='/auth/form'>로그인</a>");
+      out.println("<a href='/auth/form.jsp'>로그인</a>");
     } else {
       if (loginUser.getPhoto() == null) {
         out.println("<img style='height:40px' src='/images/avatar.png'>");
