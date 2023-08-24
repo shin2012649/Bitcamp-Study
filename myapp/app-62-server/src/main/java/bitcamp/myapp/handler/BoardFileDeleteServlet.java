@@ -56,14 +56,3 @@ public class BoardFileDeleteServlet extends HttpServlet {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-

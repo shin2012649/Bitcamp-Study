@@ -52,14 +52,3 @@ public class ErrorServlet extends HttpServlet {
     out.println("</html>");
   }
 }
-
-
-
-
-
-
-
-
-
-
-

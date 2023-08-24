@@ -40,14 +40,3 @@ public class HomeServlet extends HttpServlet {
     out.println("</html>");
   }
 }
-
-
-
-
-
-
-
-
-
-
-

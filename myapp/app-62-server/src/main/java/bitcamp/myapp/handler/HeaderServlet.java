@@ -42,14 +42,3 @@ public class HeaderServlet extends HttpServlet {
     out.println("</div>");
   }
 }
-
-
-
-
-
-
-
-
-
-
-

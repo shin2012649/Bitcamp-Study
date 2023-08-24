@@ -30,14 +30,3 @@ public class FooterServlet extends HttpServlet {
     doGet(req, resp);
   }
 }
-
-
-
-
-
-
-
-
-
-
-

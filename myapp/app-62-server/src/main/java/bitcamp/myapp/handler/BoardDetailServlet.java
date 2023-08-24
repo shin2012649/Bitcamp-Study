@@ -93,14 +93,3 @@ public class BoardDetailServlet extends HttpServlet {
 
   }
 }
-
-
-
-
-
-
-
-
-
-
-

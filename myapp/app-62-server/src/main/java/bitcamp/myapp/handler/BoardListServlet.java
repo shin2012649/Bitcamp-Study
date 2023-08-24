@@ -77,14 +77,3 @@ public class BoardListServlet extends HttpServlet {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
