@@ -7,6 +7,10 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 // => IoC 컨테이너가 빈을 생성할 때 마다 로그를 출력한다.
 //
 public class LogBeanPostProcessor implements BeanPostProcessor {
+  
+  static {
+    System.out.println("LogBeanPostProcessor 클래스 로딩 ");
+  }
 
   public LogBeanPostProcessor() {
     System.out.println("LogBeanPostProcessor()");
