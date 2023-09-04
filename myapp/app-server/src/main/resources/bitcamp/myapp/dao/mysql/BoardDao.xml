@@ -70,7 +70,7 @@
     myapp_board b inner join myapp_member m on b.writer=m.member_no
     left outer join myapp_board_file f on b.board_no=f.board_no
     where
-    and b.board_no=#{boardNo}
+    b.board_no=#{boardNo}
   </select>
 
   <update id="update" parameterType="board">
@@ -78,22 +78,20 @@
     title=#{title},
     content=#{content}
     where
-    category=#{category}
-    and board_no=#{no}
-    and writer=#{writer.no}
+    board_no=#{no}
   </update>
 
   <update id="updateCount" parameterType="int">
     update myapp_board set
-    view_count=viewCount + 1
+    view_count=view_Count + 1
     where
-    and board_no=#{no}
+    board_no=#{no}
   </update>
 
-  <delete id="delete" parameterType="board">
+  <delete id="delete" parameterType="int">
     delete from myapp_board
     where
-    and board_no=#{no}
+    board_no=#{no}
   </delete>
 
   <insert id="insertFiles" parameterType="board">
@@ -125,8 +123,3 @@
     board_no=#{no}
   </delete>
 </mapper>
-
-
-
-
-
