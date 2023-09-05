@@ -1,15 +1,14 @@
 package bitcamp.myapp.service;
 
-import bitcamp.util.Transactioal;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
-
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-//@Service
+@Service
 public class DefaultBoardService implements BoardService {
 
     BoardDao boardDao;
@@ -18,17 +17,15 @@ public class DefaultBoardService implements BoardService {
         this.boardDao = boardDao;
     }
 
-    @Transactioal // 이 메서드는 트랜잭션 상태에서 실행하라고 지정
+    @Transactional // 이 메서드는 트랜잭션 상태에서 실행하라고 지정
     @Override
     public int add(Board board) throws Exception {
-            int count = boardDao.insert(board);
-            if (board.getAttachedFiles().size() > 0) {
-                boardDao.insertFiles(board);
-            }
-            return count;
-            }
-
-
+        int count = boardDao.insert(board);
+        if (board.getAttachedFiles().size() > 0) {
+            boardDao.insertFiles(board);
+        }
+        return count;
+    }
 
     @Override
     public List<Board> list(int category) throws Exception {
@@ -40,24 +37,24 @@ public class DefaultBoardService implements BoardService {
         return boardDao.findBy(boardNo);
     }
 
-    @Transactioal
+    @Transactional
     @Override
     public int update(Board board) throws Exception {
-            int count = boardDao.update(board);
-            if (count > 0 && board.getAttachedFiles().size() > 0) {
-                boardDao.insertFiles(board);
-            }
-            return count;
+        int count = boardDao.update(board);
+        if (count > 0 && board.getAttachedFiles().size() > 0) {
+            boardDao.insertFiles(board);
         }
-
-    @Transactioal
-    @Override
-    public int delete(int boardNo) throws Exception {
-            boardDao.deleteFiles(boardNo);
-             return boardDao.delete(boardNo);
+        return count;
     }
 
-    @Transactioal
+    @Transactional
+    @Override
+    public int delete(int boardNo) throws Exception {
+        boardDao.deleteFiles(boardNo);
+        return boardDao.delete(boardNo);
+    }
+
+    @Transactional
     @Override
     public int increaseViewCount(int boardNo) throws Exception {
         return boardDao.updateCount(boardNo);
@@ -70,6 +67,6 @@ public class DefaultBoardService implements BoardService {
 
     @Override
     public int deleteAttachedFile(int fileNo) throws Exception {
-        return 0;
+        return boardDao.deleteFile(fileNo);
     }
 }

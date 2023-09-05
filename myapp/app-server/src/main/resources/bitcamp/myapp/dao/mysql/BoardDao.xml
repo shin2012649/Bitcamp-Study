@@ -83,7 +83,7 @@
 
   <update id="updateCount" parameterType="int">
     update myapp_board set
-    view_count=view_Count + 1
+    view_count=view_count + 1
     where
     board_no=#{no}
   </update>
@@ -123,3 +123,8 @@
     board_no=#{no}
   </delete>
 </mapper>
+
+
+
+
+

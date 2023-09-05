@@ -1,24 +1,22 @@
 package bitcamp.myapp.controller;
 
-import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.service.MemberService;
 import bitcamp.myapp.vo.Member;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@Controller("/auth/login")
-public class LoginController implements PageController {
+@Controller
+public class AuthController {
 
-@Autowired
+    @Autowired
     MemberService memberService;
 
-    @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    @RequestMapping("/auth/login")
+    public String login(HttpServletRequest request, HttpServletResponse response) throws Exception {
         if (request.getMethod().equals("GET")) {
             return "/WEB-INF/jsp/auth/form.jsp";
         }
@@ -42,6 +40,12 @@ public class LoginController implements PageController {
         }
 
         request.getSession().setAttribute("loginUser", loginUser);
+        return "redirect:/";
+    }
+
+    @RequestMapping("/auth/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        request.getSession().invalidate();
         return "redirect:/";
     }
 }
