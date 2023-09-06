@@ -14,7 +14,9 @@ public class AppWebApplicationInitializer extends AbstractAnnotationConfigDispat
     }
 
     @Override
-    protected String getServletName() { return "app";}
+    protected String getServletName() {
+        return "app";
+    }
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -41,6 +43,6 @@ public class AppWebApplicationInitializer extends AbstractAnnotationConfigDispat
 
     @Override
     protected Filter[] getServletFilters() {
-        return new  Filter[]{new CharacterEncodingFilter("UTF-8")};
+        return new Filter[] {new CharacterEncodingFilter("UTF-8")};
     }
 }

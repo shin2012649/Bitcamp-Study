@@ -40,11 +40,11 @@ public class AdminWebApplicationInitializer extends AbstractAnnotationConfigDisp
 
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        registration.setMultipartConfig(new MultipartConfigElement(null, 10000000, 15000000, 1000000));
+        registration.setMultipartConfig(new MultipartConfigElement(null , 10000000, 15000000, 1000000));
     }
 
     @Override
     protected Filter[] getServletFilters() {
-        return new  Filter[]{new CharacterEncodingFilter("UTF-8")};
+        return new Filter[] {new CharacterEncodingFilter("UTF-8")};
     }
 }
