@@ -7,6 +7,7 @@ import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
@@ -15,6 +16,10 @@ import java.util.Map;
 
 @Controller
 public class BoardController {
+
+  {
+    System.out.println("BoardController 생성됨! ");
+  }
 
   @Autowired
   BoardService boardService;
@@ -30,7 +35,7 @@ public class BoardController {
   @RequestMapping("/board/add")
   public String add(
           Board board,
-          @RequestParam("files") Part[] parts,
+          Part[] files,
           Map<String,Object> model,
           HttpSession session) throws Exception {
 
@@ -43,7 +48,7 @@ public class BoardController {
 
     try {
       ArrayList<AttachedFile> attachedFiles = new ArrayList<>();
-      for (Part part : parts) {
+      for (Part part : files) {
         if (part.getSize() > 0) {
           String uploadFileUrl = ncpObjectStorageService.uploadFile(
                   "bitcamp-bucket-05", "board/", part);
@@ -66,8 +71,8 @@ public class BoardController {
 
   @RequestMapping("/board/delete")
   public String delete(
-          @RequestParam("no") int no,
-          @RequestParam("category") int category,
+          int no,
+          int category,
           Map<String,Object> model,
           HttpSession session) throws Exception {
 
@@ -94,8 +99,8 @@ public class BoardController {
 
   @RequestMapping("/board/detail")
   public String detail(
-          @RequestParam("no") int no,
-          @RequestParam("category") int category,
+          int no,
+          int category,
           Map<String,Object> model) throws Exception {
     try {
       Board board = boardService.get(no);
@@ -113,7 +118,7 @@ public class BoardController {
 
   @RequestMapping("/board/list")
   public String list(
-          @RequestParam("category") int category,
+          int category,
           Map<String,Object> model) throws Exception {
     try {
       model.put("list", boardService.list(category));
@@ -128,7 +133,7 @@ public class BoardController {
   @RequestMapping("/board/update")
   public String update(
           Board board,
-          @RequestParam("files") Part[] parts,
+          Part[] files,
           Map<String,Object> model,
           HttpSession session) throws Exception {
 
@@ -144,7 +149,7 @@ public class BoardController {
       }
 
       ArrayList<AttachedFile> attachedFiles = new ArrayList<>();
-      for (Part part : parts) {
+      for (Part part : files) {
         if (part.getSize() > 0) {
           String uploadFileUrl = ncpObjectStorageService.uploadFile(
                   "bitcamp-bucket-05", "board/", part);
@@ -166,7 +171,7 @@ public class BoardController {
 
   @RequestMapping("/board/fileDelete")
   public String fileDelete(
-          @RequestParam("no") int no,
+          int no,
           Map<String,Object> model,
           HttpSession session) throws Exception {
 
