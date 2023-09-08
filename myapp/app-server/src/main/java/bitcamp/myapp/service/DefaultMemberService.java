@@ -9,7 +9,6 @@ import java.util.List;
 
 @Service
 public class DefaultMemberService implements MemberService {
-
     {
         System.out.println("DefaultMemberService 생성됨!");
     }
