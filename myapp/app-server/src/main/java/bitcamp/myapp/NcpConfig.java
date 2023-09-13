@@ -1,13 +1,16 @@
 package bitcamp.myapp;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
+@PropertySource("ncp.properties")
 public class NcpConfig {
-  private String endPoint = "https://kr.object.ncloudstorage.com";
-  private String regionName = "kr-standard";
-  private String accessKey = System.getProperty("accessKey");
-  private String secretKey = System.getProperty("secretKey");
+  @Value("${ncp.end.point}") private String endPoint;
+  @Value("${ncp.region.name}") private String regionName;
+  @Value("${ncp.accessKey}") private String accessKey;
+  @Value("${ncp.secretKey}") private String secretKey;
 
   public NcpConfig() {
     System.out.println("NcpConfig() 호출됨!");
