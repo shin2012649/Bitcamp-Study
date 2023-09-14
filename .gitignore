@@ -506,5 +506,6 @@ gradle-app.setting
 *.exe
 node_modules/
 temp/
-
 ncp.properties
+# Ignore Gradle build output directory
+build
